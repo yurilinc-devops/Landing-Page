@@ -27,12 +27,14 @@ jobs:
           ls -la | head -n 50
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './'
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
