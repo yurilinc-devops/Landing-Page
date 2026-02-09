@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
   workflow_dispatch:
 
 permissions:
@@ -17,6 +18,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Repo size (debug)
+        run: |
+          du -sh . || true
+          ls -la | head -n 50
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v2
